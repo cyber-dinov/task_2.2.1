@@ -6,6 +6,16 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+   @Override
+   public String toString() {
+      return "User id = " + id +
+              "\nfirstName = " + firstName +
+              "\nlastName = " + lastName +
+              "\nemail = " + email +
+              "\ncar = " + car.getModel() +
+              " series:" + car.getSeries() + "\n";
+   }
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;

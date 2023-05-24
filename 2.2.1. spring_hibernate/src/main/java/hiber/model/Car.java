@@ -7,6 +7,8 @@ import javax.persistence.*;
 @Table
 public class Car {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +24,6 @@ public class Car {
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
-
 
 
     public User getUser() {
