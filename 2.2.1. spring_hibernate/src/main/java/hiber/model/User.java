@@ -6,15 +6,6 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-   @Override
-   public String toString() {
-      return "User id = " + id +
-              "\nfirstName = " + firstName +
-              "\nlastName = " + lastName +
-              "\nemail = " + email +
-              "\ncar = " + car.getModel() +
-              " series:" + car.getSeries() + "\n";
-   }
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +20,7 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   public Car getCar() {
-      return car;
-   }
+
 
    @OneToOne(cascade = CascadeType.ALL)
    @JoinColumn(name = "car_id")
@@ -76,5 +65,16 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+
+   @Override
+   public String toString() {
+      return "User id = " + id +
+              "\nfirstName = " + firstName +
+              "\nlastName = " + lastName +
+              "\nemail = " + email +
+              "\ncar = " + car.getModel() +
+              " series:" + car.getSeries() + "\n";
    }
 }
